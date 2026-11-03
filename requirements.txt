@@ -1,0 +1,20 @@
+# PyTorch is installed separately (CUDA build depends on the machine):
+#   local RTX 50xx : uv pip install torch --index-url https://download.pytorch.org/whl/cu128
+#   Colab          : already installed
+transformers
+datasets
+sentencepiece
+accelerate
+torch_geometric
+neo4j
+# pandas 3.x DLLs are blocked by Windows Smart App Control on some machines; 2.2.3 loads fine
+pandas==2.2.3
+numpy
+scikit-learn
+tqdm
+python-dotenv
+jupyter
+kaggle
+# demo app (streamlit_app.py)
+streamlit>=1.57
+altair

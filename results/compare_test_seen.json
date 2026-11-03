@@ -1,0 +1,94 @@
+{
+ "baseline_t5:test_seen": {
+  "overall": {
+   "n": 1246,
+   "exec_acc": 77.61,
+   "exec_nonempty_gold": 77.67,
+   "exact_match": 42.22,
+   "validity": 98.23
+  },
+  "by_category": {
+   "Complex_Aggregation": {
+    "n": 279,
+    "exec_acc": 44.8,
+    "exec_nonempty_gold": 44.96,
+    "exact_match": 4.3,
+    "validity": 94.27
+   },
+   "Complex_Retrieval": {
+    "n": 263,
+    "exec_acc": 61.98,
+    "exec_nonempty_gold": 61.98,
+    "exact_match": 21.29,
+    "validity": 98.1
+   },
+   "Evaluation_query": {
+    "n": 328,
+    "exec_acc": 96.34,
+    "exec_nonempty_gold": 96.34,
+    "exact_match": 76.52,
+    "validity": 99.7
+   },
+   "Simple_Aggregation": {
+    "n": 122,
+    "exec_acc": 96.72,
+    "exec_nonempty_gold": 96.72,
+    "exact_match": 30.33,
+    "validity": 100.0
+   },
+   "Simple_Retrieval": {
+    "n": 254,
+    "exec_acc": 96.46,
+    "exec_nonempty_gold": 96.46,
+    "exact_match": 66.93,
+    "validity": 100.0
+   }
+  }
+ },
+ "gat_t5:test_seen": {
+  "overall": {
+   "n": 1246,
+   "exec_acc": 82.34,
+   "exec_nonempty_gold": 82.41,
+   "exact_match": 46.07,
+   "validity": 99.04
+  },
+  "by_category": {
+   "Complex_Aggregation": {
+    "n": 279,
+    "exec_acc": 52.33,
+    "exec_nonempty_gold": 52.52,
+    "exact_match": 8.6,
+    "validity": 97.85
+   },
+   "Complex_Retrieval": {
+    "n": 263,
+    "exec_acc": 72.24,
+    "exec_nonempty_gold": 72.24,
+    "exact_match": 25.86,
+    "validity": 97.72
+   },
+   "Evaluation_query": {
+    "n": 328,
+    "exec_acc": 98.48,
+    "exec_nonempty_gold": 98.48,
+    "exact_match": 83.54,
+    "validity": 100.0
+   },
+   "Simple_Aggregation": {
+    "n": 122,
+    "exec_acc": 96.72,
+    "exec_nonempty_gold": 96.72,
+    "exact_match": 31.15,
+    "validity": 100.0
+   },
+   "Simple_Retrieval": {
+    "n": 254,
+    "exec_acc": 98.03,
+    "exec_nonempty_gold": 98.03,
+    "exact_match": 66.93,
+    "validity": 100.0
+   }
+  }
+ }
+}

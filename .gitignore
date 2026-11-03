@@ -1,0 +1,14 @@
+.venv/
+.env
+__pycache__/
+.ipynb_checkpoints/
+data/raw/
+data/processed/
+models/
+kaggle.json
+
+# documents and local tool settings (kept locally, not in the repo)
+*.docx
+*.pdf
+*.tex
+.claude/

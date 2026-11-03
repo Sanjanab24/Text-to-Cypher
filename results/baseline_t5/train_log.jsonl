@@ -1,0 +1,5 @@
+{"epoch": 0, "train_loss": 0.2983, "val_exec_acc": 53.0, "val_validity": 89.5, "minutes": 19.3}
+{"epoch": 1, "train_loss": 0.1225, "val_exec_acc": 65.5, "val_validity": 89.0, "minutes": 19.4}
+{"epoch": 2, "train_loss": 0.0946, "val_exec_acc": 50.5, "val_validity": 89.5, "minutes": 20.0}
+{"epoch": 3, "train_loss": 0.0785, "val_exec_acc": 63.0, "val_validity": 90.0, "minutes": 26.2}
+{"epoch": 4, "train_loss": 0.0676, "val_exec_acc": 53.25, "val_validity": 95.25, "minutes": 22.7}

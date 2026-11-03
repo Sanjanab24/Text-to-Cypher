@@ -1,0 +1,2 @@
+{"epoch": 0, "train_loss": 0.0851, "val_exec_acc": 64.75, "val_validity": 91.5, "minutes": 11.8}
+{"epoch": 1, "train_loss": 0.0488, "val_exec_acc": 64.0, "val_validity": 91.25, "minutes": 9.0}

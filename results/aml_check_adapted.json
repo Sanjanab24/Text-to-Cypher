@@ -1,0 +1,992 @@
+[
+ {
+  "question": "List the names of all crypto banks.",
+  "gold": "MATCH (b:Bank) WHERE b.is_crypto = 'true' RETURN b.name",
+  "category": "Simple_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (b:Bank) WHERE b.is_crypto = 'true' RETURN b.name",
+   "exec_top": true,
+   "guided": "MATCH (b:Bank) WHERE b.is_crypto = 'true' RETURN b.name",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (b:Bank {is_crypto: 'True'}) RETURN b.name",
+   "exec_top": false,
+   "guided": "MATCH (b:Bank {is_crypto: 'true'}) RETURN b.name",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "Show the bank IDs of all banks located in Portugal.",
+  "gold": "MATCH (b:Bank {country: 'Portugal'}) RETURN b.bank_id",
+  "category": "Simple_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (b:Bank {country: 'Portugal'}) RETURN b.bank_id",
+   "exec_top": true,
+   "guided": "MATCH (b:Bank {country: 'Portugal'}) RETURN b.bank_id",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (b:Bank {country: 'Portugal'}) RETURN b.bank_id",
+   "exec_top": true,
+   "guided": "MATCH (b:Bank {country: 'Portugal'}) RETURN b.bank_id",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "Which entities are of type 'Individual'? Return their names.",
+  "gold": "MATCH (e:Entity {entity_type: 'Individual'}) RETURN e.name",
+  "category": "Simple_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (e:Entity {entity_type: 'Individual'}) RETURN e.name",
+   "exec_top": true,
+   "guided": "MATCH (e:Entity {entity_type: 'Individual'}) RETURN e.name",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (e:Entity {entity_type: 'Individual'}) RETURN e.name",
+   "exec_top": true,
+   "guided": "MATCH (e:Entity {entity_type: 'Individual'}) RETURN e.name",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "List the names of all banks in Switzerland.",
+  "gold": "MATCH (b:Bank {country: 'Switzerland'}) RETURN b.name",
+  "category": "Simple_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (b:Bank {country: 'Switzerland'}) RETURN b.name",
+   "exec_top": true,
+   "guided": "MATCH (b:Bank {country: 'Switzerland'}) RETURN b.name",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (b:Bank {country: 'Switzerland'}) RETURN b.name",
+   "exec_top": true,
+   "guided": "MATCH (b:Bank {country: 'Switzerland'}) RETURN b.name",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "What are the distinct payment formats used in transfers?",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN DISTINCT t.payment_format",
+  "category": "Simple_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN DISTINCT t.payment_format",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN DISTINCT t.payment_format",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN DISTINCT t.payment_format",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN DISTINCT t.payment_format",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "Which currencies are used to pay for transfers?",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN DISTINCT t.payment_currency",
+  "category": "Simple_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN t.payment_currency",
+   "exec_top": false,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN t.payment_currency",
+   "exec_guided": false
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN t.payment_currency",
+   "exec_top": false,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN t.payment_currency",
+   "exec_guided": false
+  }
+ },
+ {
+  "question": "List the transaction IDs of transfers that belong to the 'CYCLE' laundering pattern.",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.laundering_pattern = 'CYCLE' RETURN t.transaction_id",
+  "category": "Simple_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.laundering_pattern = 'CYCLE' RETURN t.transaction_id",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.laundering_pattern = 'CYCLE' RETURN t.transaction_id",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.laundering_pattern = 'CYCLE' RETURN t.transaction_id",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.laundering_pattern = 'CYCLE' RETURN t.transaction_id",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "Which account numbers are held at the bank named 'Canada Bank #27'?",
+  "gold": "MATCH (a:Account)-[:HELD_AT]->(b:Bank {name: 'Canada Bank #27'}) RETURN a.account_number",
+  "category": "Simple_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (a:Account)-[:HELD_AT]->(:Bank {name: 'Canada Bank #27'}) RETURN a.account_number",
+   "exec_top": true,
+   "guided": "MATCH (a:Account)-[:HELD_AT]->(:Bank {name: 'Canada Bank #27'}) RETURN a.account_number",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (a:Account)-[:HELD_AT]->(:Bank {name: 'Canada Bank #27'}) RETURN a.account_number",
+   "exec_top": true,
+   "guided": "MATCH (a:Account)-[:HELD_AT]->(:Bank {name: 'Canada Bank #27'}) RETURN a.account_number",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "Find the transaction IDs of transfers paid in Bitcoin with an amount paid greater than 100.",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.payment_currency = 'Bitcoin' AND t.amount_paid > 100 RETURN t.transaction_id",
+  "category": "Simple_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.payment_currency = 'Bitcoin' AND t.amount_paid > 100 RETURN t.transaction_id",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.payment_currency = 'Bitcoin' AND t.amount_paid > 100 RETURN t.transaction_id",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.payment_currency = 'Bitcoin' AND t.amount_paid > 100 RETURN t.transaction_id",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.payment_currency = 'Bitcoin' AND t.amount_paid > 100 RETURN t.transaction_id",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "What are the distinct laundering patterns in the data?",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.laundering_pattern IS NOT NULL RETURN DISTINCT t.laundering_pattern",
+  "category": "Simple_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.laundering_pattern IS NOT NULL RETURN DISTINCT t.laundering_pattern",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.laundering_pattern IS NOT NULL RETURN DISTINCT t.laundering_pattern",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (t:TRANSFERRED_TO) RETURN DISTINCT t.laundering_pattern",
+   "exec_top": false,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN DISTINCT t.laundering_pattern",
+   "exec_guided": false
+  }
+ },
+ {
+  "question": "How many banks are there?",
+  "gold": "MATCH (b:Bank) RETURN count(b)",
+  "category": "Simple_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (b:Bank) RETURN count(b) AS numBanks",
+   "exec_top": true,
+   "guided": "MATCH (b:Bank) RETURN count(b) AS numBanks",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (b:Bank) RETURN count(b) AS numBanks",
+   "exec_top": true,
+   "guided": "MATCH (b:Bank) RETURN count(b) AS numBanks",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "How many entities are there?",
+  "gold": "MATCH (e:Entity) RETURN count(e)",
+  "category": "Simple_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (e:Entity) RETURN count(e) AS numEntities",
+   "exec_top": true,
+   "guided": "MATCH (e:Entity) RETURN count(e) AS numEntities",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (e:Entity) RETURN count(e) AS numEntities",
+   "exec_top": true,
+   "guided": "MATCH (e:Entity) RETURN count(e) AS numEntities",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "How many accounts are there?",
+  "gold": "MATCH (a:Account) RETURN count(a)",
+  "category": "Simple_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (a:Account) RETURN count(a) AS numAccounts",
+   "exec_top": true,
+   "guided": "MATCH (a:Account) RETURN count(a) AS numAccounts",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (a:Account) RETURN count(a) AS numAccounts",
+   "exec_top": true,
+   "guided": "MATCH (a:Account) RETURN count(a) AS numAccounts",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "How many transfers are marked as laundering?",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN count(t)",
+  "category": "Simple_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN count(t) AS numLaundering",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN count(t) AS numLaundering",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN count(t) AS numLaundering",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN count(t) AS numLaundering",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "How many crypto banks are there?",
+  "gold": "MATCH (b:Bank) WHERE b.is_crypto = 'true' RETURN count(b)",
+  "category": "Simple_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (b:Bank) WHERE b.is_crypto = 'true' RETURN count(b) AS numCryptoBanks",
+   "exec_top": true,
+   "guided": "MATCH (b:Bank) WHERE b.is_crypto = 'true' RETURN count(b) AS numCryptoBanks",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (b:Bank {is_crypto: 'True'}) RETURN count(b) AS numCryptoBanks",
+   "exec_top": false,
+   "guided": "MATCH (b:Bank {is_crypto: 'True'}) RETURN count(b) AS numCryptoBanks",
+   "exec_guided": false
+  }
+ },
+ {
+  "question": "What is the total amount paid in transfers marked as laundering?",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN sum(t.amount_paid)",
+  "category": "Simple_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN sum(t.amount_paid) AS totalPaid",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN sum(t.amount_paid) AS totalPaid",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN sum(t.amount_paid) AS totalPaid",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN sum(t.amount_paid) AS totalPaid",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "What is the largest amount paid in a single transfer?",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN max(t.amount_paid)",
+  "category": "Simple_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN max(t.amount_paid) AS maxPaid",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN max(t.amount_paid) AS maxPaid",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN max(t.amount_paid) AS maxPaid",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN max(t.amount_paid) AS maxPaid",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "How many transfers used the 'ACH' payment format?",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.payment_format = 'ACH' RETURN count(t)",
+  "category": "Simple_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.payment_format = 'ACH' RETURN count(t) AS numTransfers",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.payment_format = 'ACH' RETURN count(t) AS numTransfers",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.payment_format = 'ACH' RETURN count(t) AS numTransfers",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.payment_format = 'ACH' RETURN count(t) AS numTransfers",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "What is the average amount paid in transfers paid in Euro?",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.payment_currency = 'Euro' RETURN avg(t.amount_paid)",
+  "category": "Simple_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.payment_currency = 'Euro' RETURN avg(t.amount_paid) AS avgPaid",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.payment_currency = 'Euro' RETURN avg(t.amount_paid) AS avgPaid",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.payment_currency = 'Euro' RETURN avg(t.amount_paid) AS avgPaid",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.payment_currency = 'Euro' RETURN avg(t.amount_paid) AS avgPaid",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "How many banks are located in Germany?",
+  "gold": "MATCH (b:Bank {country: 'Germany'}) RETURN count(b)",
+  "category": "Simple_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (b:Bank {country: 'Germany'}) RETURN count(b) AS numBanks",
+   "exec_top": true,
+   "guided": "MATCH (b:Bank {country: 'Germany'}) RETURN count(b) AS numBanks",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (b:Bank {country: 'Germany'}) RETURN count(b) AS numBanks",
+   "exec_top": true,
+   "guided": "MATCH (b:Bank {country: 'Germany'}) RETURN count(b) AS numBanks",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "How many entities are corporations?",
+  "gold": "MATCH (e:Entity {entity_type: 'Corporation'}) RETURN count(e)",
+  "category": "Simple_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (e:Entity) WHERE e.entity_type = 'corporations' RETURN count(e) AS numEntities",
+   "exec_top": false,
+   "guided": "MATCH (e:Entity) WHERE e.entity_type = 'corporations' RETURN count(e) AS numEntities",
+   "exec_guided": false
+  },
+  "gat": {
+   "top": "MATCH (e:Entity)-[:OWNS]->() WHERE e.entity_type = 'corporations' RETURN count(e) AS numEntities",
+   "exec_top": false,
+   "guided": "MATCH (e:Entity)-[:OWNS]->() WHERE e.entity_type = 'corporations' RETURN count(e) AS numEntities",
+   "exec_guided": false
+  }
+ },
+ {
+  "question": "What is the country of the bank named 'Portugal Bank #4507'?",
+  "gold": "MATCH (b:Bank {name: 'Portugal Bank #4507'}) RETURN b.country",
+  "category": "Evaluation_query",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (b:Bank {name: 'Portugal Bank #4507'}) RETURN b.country",
+   "exec_top": true,
+   "guided": "MATCH (b:Bank {name: 'Portugal Bank #4507'}) RETURN b.country",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (b:Bank {name: 'Portugal Bank #4507'}) RETURN b.country AS country",
+   "exec_top": true,
+   "guided": "MATCH (b:Bank {name: 'Portugal Bank #4507'}) RETURN b.country AS country",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "What type of entity is 'Sole Proprietorship #50438'?",
+  "gold": "MATCH (e:Entity {name: 'Sole Proprietorship #50438'}) RETURN e.entity_type",
+  "category": "Evaluation_query",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (e:Entity {name: 'Sole Proprietorship #50438'}) RETURN e.entity_type",
+   "exec_top": true,
+   "guided": "MATCH (e:Entity {name: 'Sole Proprietorship #50438'}) RETURN e.entity_type",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (e:Entity {name: 'Sole Proprietorship #50438'}) RETURN e.entity_type",
+   "exec_top": true,
+   "guided": "MATCH (e:Entity {name: 'Sole Proprietorship #50438'}) RETURN e.entity_type",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "What is the bank ID of 'Canada Bank #27'?",
+  "gold": "MATCH (b:Bank {name: 'Canada Bank #27'}) RETURN b.bank_id",
+  "category": "Evaluation_query",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (b:Bank {name: 'Canada Bank #27'}) RETURN b.bank_id",
+   "exec_top": true,
+   "guided": "MATCH (b:Bank {name: 'Canada Bank #27'}) RETURN b.bank_id",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (b:Bank {name: 'Canada Bank #27'}) RETURN b.bank_id",
+   "exec_top": true,
+   "guided": "MATCH (b:Bank {name: 'Canada Bank #27'}) RETURN b.bank_id",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "Is the bank 'Canada Bank #27' a crypto bank?",
+  "gold": "MATCH (b:Bank {name: 'Canada Bank #27'}) RETURN b.is_crypto",
+  "category": "Evaluation_query",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (b:Bank {name: 'Canada Bank #27'}) is_crypto: 'crypto' RETURN b.bank_id",
+   "exec_top": false,
+   "guided": "MATCH (b:Bank {name: 'Canada Bank #27'}) is_crypto: 'crypto' RETURN b.bank_id",
+   "exec_guided": false
+  },
+  "gat": {
+   "top": "MATCH (b:Bank {name: 'Canada Bank #27'}) RETURN b.is_crypto",
+   "exec_top": true,
+   "guided": "MATCH (b:Bank {name: 'Canada Bank #27'}) RETURN b.is_crypto",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "Which entity owns the account with account number '80B779D80'?",
+  "gold": "MATCH (e:Entity)-[:OWNS]->(a:Account {account_number: '80B779D80'}) RETURN e.name",
+  "category": "Evaluation_query",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (e:Entity)-[:OWNS]->(:Account {account_number: '80B779D80'}) RETURN e.name",
+   "exec_top": true,
+   "guided": "MATCH (e:Entity)-[:OWNS]->(:Account {account_number: '80B779D80'}) RETURN e.name",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (e:Entity)-[:OWNS]->(:Account {account_number: '80B779D80'}) RETURN e.name",
+   "exec_top": true,
+   "guided": "MATCH (e:Entity)-[:OWNS]->(:Account {account_number: '80B779D80'}) RETURN e.name",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "At which bank is the account with account number '80B779D80' held?",
+  "gold": "MATCH (a:Account {account_number: '80B779D80'})-[:HELD_AT]->(b:Bank) RETURN b.name",
+  "category": "Evaluation_query",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (:Account {account_number: '80B779D80'})-[:HELD_AT]->(b:Bank) RETURN b.name",
+   "exec_top": true,
+   "guided": "MATCH (:Account {account_number: '80B779D80'})-[:HELD_AT]->(b:Bank) RETURN b.name",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (:Account {account_number: '80B779D80'})-[:HELD_AT]->(b:Bank) RETURN b.name",
+   "exec_top": true,
+   "guided": "MATCH (:Account {account_number: '80B779D80'})-[:HELD_AT]->(b:Bank) RETURN b.name",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "What payment format was used in the transfer with transaction ID 2?",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO {transaction_id: 2}]->() RETURN t.payment_format",
+  "category": "Evaluation_query",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO {transaction_id: 2}]->() RETURN t.payment_format",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO {transaction_id: 2}]->() RETURN t.payment_format",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO {transaction_id: 2}]->() RETURN t.payment_format",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO {transaction_id: 2}]->() RETURN t.payment_format",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "How much was paid in the transfer with transaction ID 2?",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO {transaction_id: 2}]->() RETURN t.amount_paid",
+  "category": "Evaluation_query",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO {transaction_id: 2}]->() RETURN t.amount_paid",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO {transaction_id: 2}]->() RETURN t.amount_paid",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO {transaction_id: 2}]->() RETURN t.amount_paid",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO {transaction_id: 2}]->() RETURN t.amount_paid",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "Which entities own accounts at crypto banks? Return the distinct entity names.",
+  "gold": "MATCH (e:Entity)-[:OWNS]->(:Account)-[:HELD_AT]->(b:Bank) WHERE b.is_crypto = 'true' RETURN DISTINCT e.name",
+  "category": "Complex_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (e:Entity)-[:OWNS]->(:Account)-[:HELD_AT]->(:Bank) WHERE e.is_crypto = 'true' RETURN DISTINCT e.name",
+   "exec_top": false,
+   "guided": "MATCH (e:Entity)-[:OWNS]->(:Account)-[:HELD_AT]->(b:Bank) WHERE b.is_crypto = 'true' RETURN DISTINCT e.name",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (e:Entity)-[:OWNS]->(:Account)-[:HELD_AT]->(:Bank) WHERE e.is_crypto = 'True' RETURN DISTINCT e.name",
+   "exec_top": false,
+   "guided": "MATCH (e:Entity)-[:OWNS]->(:Account)-[:HELD_AT]->(:Bank) WHERE e.is_crypto = 'True' RETURN DISTINCT e.name",
+   "exec_guided": false
+  }
+ },
+ {
+  "question": "List the transaction IDs of laundering transfers paid in Bitcoin.",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering AND t.payment_currency = 'Bitcoin' RETURN t.transaction_id",
+  "category": "Complex_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering AND t.payment_currency = 'Bitcoin' RETURN t.transaction_id",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering AND t.payment_currency = 'Bitcoin' RETURN t.transaction_id",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering AND t.payment_currency = 'Bitcoin' RETURN t.transaction_id",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering AND t.payment_currency = 'Bitcoin' RETURN t.transaction_id",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "Which banks hold accounts that sent 'FAN-OUT' laundering transfers? Return the distinct bank names.",
+  "gold": "MATCH (b:Bank)<-[:HELD_AT]-(:Account)-[t:TRANSFERRED_TO]->() WHERE t.laundering_pattern = 'FAN-OUT' RETURN DISTINCT b.name",
+  "category": "Complex_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->(:Account)-[:HELD_AT]->(b:Bank) WHERE t.laundering_pattern = 'FAN-OUT' RETURN DISTINCT b.name",
+   "exec_top": false,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->(:Account)-[:HELD_AT]->(b:Bank) WHERE t.laundering_pattern = 'FAN-OUT' RETURN DISTINCT b.name",
+   "exec_guided": false
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->(:Account)-[:HELD_AT]->(b:Bank) WHERE t.laundering_pattern = 'FAN-OUT' RETURN DISTINCT b.name",
+   "exec_top": false,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->(:Account)-[:HELD_AT]->(b:Bank) WHERE t.laundering_pattern = 'FAN-OUT' RETURN DISTINCT b.name",
+   "exec_guided": false
+  }
+ },
+ {
+  "question": "Find transfers where the payment currency differs from the receiving currency and more than 10 million was paid. Return the transaction IDs.",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.payment_currency <> t.receiving_currency AND t.amount_paid > 10000000 RETURN t.transaction_id",
+  "category": "Complex_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.receiving_currency <> t.payment_currency AND t.amount_paid > 10000 RETURN t.transaction_id",
+   "exec_top": false,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.receiving_currency <> t.payment_currency AND t.amount_paid > 10000 RETURN t.transaction_id",
+   "exec_guided": false
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.receiving_currency <> t.payment_currency AND t.amount_paid > 10000 RETURN t.transaction_id",
+   "exec_top": false,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.receiving_currency <> t.payment_currency AND t.amount_paid > 10000 RETURN t.transaction_id",
+   "exec_guided": false
+  }
+ },
+ {
+  "question": "Which accounts held at German banks received a laundering transfer? Return the distinct account numbers.",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->(a:Account)-[:HELD_AT]->(:Bank {country: 'Germany'}) WHERE t.is_laundering RETURN DISTINCT a.account_number",
+  "category": "Complex_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (:Bank {country: 'German'})<-[:HELD_AT]-(a:Account)-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN DISTINCT a.account_number",
+   "exec_top": false,
+   "guided": "MATCH (:Bank {country: 'German'})<-[:HELD_AT]-(a:Account)-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN DISTINCT a.account_number",
+   "exec_guided": false
+  },
+  "gat": {
+   "top": "MATCH (a:Account)-[:HELD_AT]->(:Bank {country: 'German'})-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN DISTINCT a.account_number",
+   "exec_top": false,
+   "guided": "MATCH (a:Account)-[:HELD_AT]->(:Bank {country: 'German'})-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN DISTINCT a.account_number",
+   "exec_guided": false
+  }
+ },
+ {
+  "question": "Which accounts are held at a bank in Switzerland and owned by an entity of type 'Individual'? Return the account numbers.",
+  "gold": "MATCH (:Entity {entity_type: 'Individual'})-[:OWNS]->(a:Account)-[:HELD_AT]->(:Bank {country: 'Switzerland'}) RETURN a.account_number",
+  "category": "Complex_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (a:Account)-[:HELD_AT]->(:Bank {country: 'Switzerland'}) MATCH (e:Entity {entity_type: 'Individual'})-[:OWNS]->(a) RETURN DISTINCT a.account_number",
+   "exec_top": true,
+   "guided": "MATCH (a:Account)-[:HELD_AT]->(:Bank {country: 'Switzerland'}) MATCH (e:Entity {entity_type: 'Individual'})-[:OWNS]->(a) RETURN DISTINCT a.account_number",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (a:Account)-[:HELD_AT]->(:Bank {country: 'Switzerland'}), (a)-[:OWNS]->(e:Entity {entity_type: 'Individual'}) RETURN a.account_number",
+   "exec_top": false,
+   "guided": "MATCH (a:Account)-[:HELD_AT]->(:Bank {country: 'Switzerland'}), (a)-[:OWNS]->(e:Entity {entity_type: 'Individual'}) RETURN a.account_number",
+   "exec_guided": false
+  }
+ },
+ {
+  "question": "Find the names of entities that own an account which sent a 'CYCLE' laundering transfer.",
+  "gold": "MATCH (e:Entity)-[:OWNS]->(:Account)-[t:TRANSFERRED_TO]->() WHERE t.laundering_pattern = 'CYCLE' RETURN DISTINCT e.name",
+  "category": "Complex_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (e:Entity)-[:OWNS]->(:Account)<-[t:TRANSFERRED_TO]-() WHERE t.laundering_pattern = 'CYCLE' RETURN e.name",
+   "exec_top": false,
+   "guided": "MATCH (e:Entity)-[:OWNS]->(:Account)<-[t:TRANSFERRED_TO]-() WHERE t.laundering_pattern = 'CYCLE' RETURN e.name",
+   "exec_guided": false
+  },
+  "gat": {
+   "top": "MATCH (e:Entity)-[:OWNS]->(:Account)<-[t:TRANSFERRED_TO]-() WHERE t.laundering_pattern = 'CYCLE' RETURN e.name",
+   "exec_top": false,
+   "guided": "MATCH (e:Entity)-[:OWNS]->(:Account)<-[t:TRANSFERRED_TO]-() WHERE t.laundering_pattern = 'CYCLE' RETURN e.name",
+   "exec_guided": false
+  }
+ },
+ {
+  "question": "Which laundering transfers went between accounts held at banks in different countries? Return the transaction IDs.",
+  "gold": "MATCH (b1:Bank)<-[:HELD_AT]-(:Account)-[t:TRANSFERRED_TO]->(:Account)-[:HELD_AT]->(b2:Bank) WHERE t.is_laundering AND b1.country <> b2.country RETURN t.transaction_id",
+  "category": "Complex_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->(:Account)-[:HELD_AT]->(:Bank) WHERE t.is_laundering AND t.country <> t.country RETURN t.transaction_id",
+   "exec_top": false,
+   "guided": "MATCH (:Bank)<-[:HELD_AT]-(:Account)-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN t.transaction_id",
+   "exec_guided": false
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->(:Account)-[:HELD_AT]->(:Bank) WHERE t.is_laundering AND t.country <> t.country RETURN t.transaction_id",
+   "exec_top": false,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->(:Account)-[:HELD_AT]->(:Bank) WHERE t.is_laundering RETURN t.transaction_id",
+   "exec_guided": false
+  }
+ },
+ {
+  "question": "List the transaction IDs of transfers of more than 100 million paid in US Dollar.",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.payment_currency = 'US Dollar' AND t.amount_paid > 100000000 RETURN t.transaction_id",
+  "category": "Complex_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.amount_paid > 1000000 AND t.payment_currency = 'US Dollar' RETURN t.transaction_id",
+   "exec_top": false,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.amount_paid > 1000000 AND t.payment_currency = 'US Dollar' RETURN t.transaction_id",
+   "exec_guided": false
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.amount_paid > 100000000 AND t.payment_currency = 'US Dollar' RETURN t.transaction_id",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.amount_paid > 100000000 AND t.payment_currency = 'US Dollar' RETURN t.transaction_id",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "Which accounts did the account '80B779D80' send money to? Return the distinct account numbers.",
+  "gold": "MATCH (:Account {account_number: '80B779D80'})-[:TRANSFERRED_TO]->(b:Account) RETURN DISTINCT b.account_number",
+  "category": "Complex_Retrieval",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (:Account {account_number: '80B779D80'})-[t:TRANSFERRED_TO]->(b:Account) RETURN DISTINCT b.account_number",
+   "exec_top": true,
+   "guided": "MATCH (:Account {account_number: '80B779D80'})-[t:TRANSFERRED_TO]->(b:Account) RETURN DISTINCT b.account_number",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (:Account {account_number: '80B779D80'})-[t:TRANSFERRED_TO]->(b:Account) RETURN DISTINCT b.account_number",
+   "exec_top": true,
+   "guided": "MATCH (:Account {account_number: '80B779D80'})-[t:TRANSFERRED_TO]->(b:Account) RETURN DISTINCT b.account_number",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "Which entity owns the most accounts?",
+  "gold": "MATCH (e:Entity)-[:OWNS]->(a:Account) WITH e, count(a) AS n ORDER BY n DESC LIMIT 1 RETURN e.name, n",
+  "category": "Complex_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (e:Entity)-[:OWNS]->(a:Account) RETURN e.name, count(a) AS accountCount ORDER BY accountCount DESC LIMIT 1",
+   "exec_top": true,
+   "guided": "MATCH (e:Entity)-[:OWNS]->(a:Account) RETURN e.name, count(a) AS accountCount ORDER BY accountCount DESC LIMIT 1",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (e:Entity)-[:OWNS]->(:Account) RETURN e.name AS entityName, count(DISTINCT account) AS numAccounts ORDER BY numAccounts DESC LIMIT 1",
+   "exec_top": false,
+   "guided": "MATCH (e:Entity)-[:OWNS]->(:Account) RETURN e.name AS entityName, count(DISTINCT e) AS numEntities ORDER BY numEntities DESC LIMIT 1",
+   "exec_guided": false
+  }
+ },
+ {
+  "question": "How many accounts does each bank country have? Show the top 5.",
+  "gold": "MATCH (a:Account)-[:HELD_AT]->(b:Bank) WHERE b.country IS NOT NULL RETURN b.country, count(a) AS n ORDER BY n DESC LIMIT 5",
+  "category": "Complex_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (a:Account)-[:HELD_AT]->(b:Bank) RETURN b.country AS country, count(a) AS numAccounts ORDER BY numAccounts DESC LIMIT 5",
+   "exec_top": true,
+   "guided": "MATCH (a:Account)-[:HELD_AT]->(b:Bank) RETURN b.country AS country, count(a) AS numAccounts ORDER BY numAccounts DESC LIMIT 5",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (a:Account)-[:HELD_AT]->(:Bank) WHERE a.country IS NOT NULL RETURN a.country AS country, count(a) AS numAccounts ORDER BY numAccounts DESC LIMIT 5",
+   "exec_top": false,
+   "guided": "MATCH (a:Account)-[:HELD_AT]->(:Bank) RETURN a.country AS country, count(a) AS numAccounts ORDER BY numAccounts DESC LIMIT 5",
+   "exec_guided": false
+  }
+ },
+ {
+  "question": "Find the top 5 accounts by number of outgoing transfers.",
+  "gold": "MATCH (a:Account)-[:TRANSFERRED_TO]->(:Account) WITH a, count(*) AS n ORDER BY n DESC LIMIT 5 RETURN a.account_number, n",
+  "category": "Complex_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (a:Account)-[t:TRANSFERRED_TO]->() WITH a, count(t) AS n ORDER BY n DESC LIMIT 5 RETURN a.account_number, n",
+   "exec_top": true,
+   "guided": "MATCH (a:Account)-[t:TRANSFERRED_TO]->() WITH a, count(t) AS n ORDER BY n DESC LIMIT 5 RETURN a.account_number, n",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (a:Account)-[t:TRANSFERRED_TO]->(b:Account) WITH a, count(t) AS n ORDER BY n DESC LIMIT 5 RETURN a.account_number, n",
+   "exec_top": true,
+   "guided": "MATCH (a:Account)-[t:TRANSFERRED_TO]->(b:Account) WITH a, count(t) AS n ORDER BY n DESC LIMIT 5 RETURN a.account_number, n",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "Show the top 5 banks by number of accounts held there.",
+  "gold": "MATCH (a:Account)-[:HELD_AT]->(b:Bank) WITH b, count(a) AS n ORDER BY n DESC LIMIT 5 RETURN b.name, n",
+  "category": "Complex_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (a:Account)-[:HELD_AT]->(b:Bank) WITH b, count(a) AS accountCount ORDER BY accountCount DESC LIMIT 5 RETURN b.name, accountCount",
+   "exec_top": true,
+   "guided": "MATCH (a:Account)-[:HELD_AT]->(b:Bank) WITH b, count(a) AS accountCount ORDER BY accountCount DESC LIMIT 5 RETURN b.name, accountCount",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (a:Account)-[:HELD_AT]->(b:Bank) WITH b, count(a) AS accountCount ORDER BY accountCount DESC LIMIT 5 RETURN b.name, accountCount",
+   "exec_top": true,
+   "guided": "MATCH (a:Account)-[:HELD_AT]->(b:Bank) WITH b, count(a) AS accountCount ORDER BY accountCount DESC LIMIT 5 RETURN b.name, accountCount",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "For each laundering pattern, how many transfers are there?",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.laundering_pattern IS NOT NULL RETURN t.laundering_pattern, count(t)",
+  "category": "Complex_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.laundering_pattern IS NOT NULL RETURN t.laundering_pattern AS pattern, count(t) AS numTransfers",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.laundering_pattern IS NOT NULL RETURN t.laundering_pattern AS pattern, count(t) AS numTransfers",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.laundering_pattern IS NOT NULL RETURN t.laundering_pattern AS pattern, count(t) AS numTransfers",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.laundering_pattern IS NOT NULL RETURN t.laundering_pattern AS pattern, count(t) AS numTransfers",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "How many laundering transfers are there for each payment format?",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN t.payment_format, count(t)",
+  "category": "Complex_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN t.payment_format AS paymentFormat, count(t) AS numLaundering",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN t.payment_format AS paymentFormat, count(t) AS numLaundering",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN t.payment_format AS paymentFormat, count(t) AS numLaundering",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN t.payment_format AS paymentFormat, count(t) AS numLaundering",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "For each entity type, how many accounts do entities of that type own?",
+  "gold": "MATCH (e:Entity)-[:OWNS]->(a:Account) RETURN e.entity_type, count(a)",
+  "category": "Complex_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH (e:Entity)-[:OWNS]->(a:Account) RETURN e.entity_type AS entityType, count(a) AS numAccounts",
+   "exec_top": true,
+   "guided": "MATCH (e:Entity)-[:OWNS]->(a:Account) RETURN e.entity_type AS entityType, count(a) AS numAccounts",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (e:Entity)-[:OWNS]->(a:Account) RETURN e.entity_type AS entityType, count(a) AS numAccounts",
+   "exec_top": true,
+   "guided": "MATCH (e:Entity)-[:OWNS]->(a:Account) RETURN e.entity_type AS entityType, count(a) AS numAccounts",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "What is the average amount paid for each payment format, ordered from highest to lowest?",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN t.payment_format, avg(t.amount_paid) AS avgPaid ORDER BY avgPaid DESC",
+  "category": "Complex_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN t.payment_format AS paymentFormat, avg(t.amount_paid) AS avgPaid ORDER BY avgPaid DESC",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN t.payment_format AS paymentFormat, avg(t.amount_paid) AS avgPaid ORDER BY avgPaid DESC",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN t.payment_format AS paymentFormat, avg(t.amount_paid) AS avgPaid ORDER BY avgPaid DESC",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN t.payment_format AS paymentFormat, avg(t.amount_paid) AS avgPaid ORDER BY avgPaid DESC",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "How many laundering attempts are there for each laundering pattern?",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.laundering_pattern IS NOT NULL RETURN t.laundering_pattern, count(DISTINCT t.attempt_id)",
+  "category": "Complex_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.attempt_id IS NOT NULL RETURN t.laundering_pattern AS pattern, count(t) AS numAttempts",
+   "exec_top": false,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.attempt_id IS NOT NULL RETURN t.laundering_pattern AS pattern, count(t) AS numAttempts",
+   "exec_guided": false
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN t.laundering_pattern AS pattern, count(t) AS numLaundering",
+   "exec_top": false,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN t.laundering_pattern AS pattern, count(t) AS numLaundering",
+   "exec_guided": false
+  }
+ },
+ {
+  "question": "Which payment currency has the highest total amount paid in laundering transfers?",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN t.payment_currency, sum(t.amount_paid) AS total ORDER BY total DESC LIMIT 1",
+  "category": "Complex_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN t.payment_currency AS currency, sum(t.amount_paid) AS totalPaid ORDER BY totalPaid DESC LIMIT 1",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN t.payment_currency AS currency, sum(t.amount_paid) AS totalPaid ORDER BY totalPaid DESC LIMIT 1",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN t.payment_currency AS currency, sum(t.amount_paid) AS totalPaid ORDER BY totalPaid DESC LIMIT 1",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN t.payment_currency AS currency, sum(t.amount_paid) AS totalPaid ORDER BY totalPaid DESC LIMIT 1",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "How many transfers were made on each day? Return the date and the count, ordered by date.",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() RETURN date(t.timestamp) AS day, count(t) ORDER BY day",
+  "category": "Complex_Aggregation",
+  "paraphrase_of": null,
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE date(t.timestamp) IS NOT NULL RETURN date(t.timestamp) AS date, count(t) AS numTransfers ORDER BY date",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE date(t.timestamp) IS NOT NULL RETURN date(t.timestamp) AS date, count(t) AS numTransfers ORDER BY date",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE date(t.timestamp) IS NOT NULL RETURN date(t.timestamp) AS date, count(t) AS numTransfers ORDER BY date",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE date(t.timestamp) IS NOT NULL RETURN date(t.timestamp) AS date, count(t) AS numTransfers ORDER BY date",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "What's the total number of banks in the dataset?",
+  "gold": "MATCH (b:Bank) RETURN count(b)",
+  "category": "Simple_Aggregation",
+  "paraphrase_of": "How many banks are there?",
+  "baseline": {
+   "top": "MATCH (b:Bank) RETURN COUNT(b) AS totalBanks",
+   "exec_top": true,
+   "guided": "MATCH (b:Bank) RETURN COUNT(b) AS totalBanks",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (b:Bank) RETURN COUNT(b) AS totalBanks",
+   "exec_top": true,
+   "guided": "MATCH (b:Bank) RETURN COUNT(b) AS totalBanks",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "Count the transfers that are flagged as money laundering.",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN count(t)",
+  "category": "Simple_Aggregation",
+  "paraphrase_of": "How many transfers are marked as laundering?",
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN count(t) AS numLaundering",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN count(t) AS numLaundering",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN count(t) AS numLaundering",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN count(t) AS numLaundering",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "Give me the 5 accounts that made the most outgoing transfers.",
+  "gold": "MATCH (a:Account)-[:TRANSFERRED_TO]->(:Account) WITH a, count(*) AS n ORDER BY n DESC LIMIT 5 RETURN a.account_number, n",
+  "category": "Complex_Aggregation",
+  "paraphrase_of": "Find the top 5 accounts by number of outgoing transfers.",
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->(b:Account) WITH b, count(t) AS n ORDER BY n DESC LIMIT 5 RETURN b.account_number, n",
+   "exec_top": false,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->(b:Account) WITH b, count(t) AS n ORDER BY n DESC LIMIT 5 RETURN b.account_number, n",
+   "exec_guided": false
+  },
+  "gat": {
+   "top": "MATCH (a:Account)-[t:TRANSFERRED_TO]->(b:Account) WITH a, count(t) AS n ORDER BY n DESC LIMIT 5 RETURN a.account_number, n",
+   "exec_top": true,
+   "guided": "MATCH (a:Account)-[t:TRANSFERRED_TO]->(b:Account) WITH a, count(t) AS n ORDER BY n DESC LIMIT 5 RETURN a.account_number, n",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "Who is the entity with the largest number of accounts?",
+  "gold": "MATCH (e:Entity)-[:OWNS]->(a:Account) WITH e, count(a) AS n ORDER BY n DESC LIMIT 1 RETURN e.name, n",
+  "category": "Complex_Aggregation",
+  "paraphrase_of": "Which entity owns the most accounts?",
+  "baseline": {
+   "top": "MATCH (e:Entity)-[:OWNS]->(a:Account) RETURN e.name, count(a) AS numAccounts ORDER BY numAccounts DESC LIMIT 1",
+   "exec_top": true,
+   "guided": "MATCH (e:Entity)-[:OWNS]->(a:Account) RETURN e.name, count(a) AS numAccounts ORDER BY numAccounts DESC LIMIT 1",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH (e:Entity)-[:OWNS]->(a:Account) RETURN e.name AS entityName, count(a) AS numAccounts ORDER BY numAccounts DESC LIMIT 1",
+   "exec_top": true,
+   "guided": "MATCH (e:Entity)-[:OWNS]->(a:Account) RETURN e.name AS entityName, count(a) AS numAccounts ORDER BY numAccounts DESC LIMIT 1",
+   "exec_guided": true
+  }
+ },
+ {
+  "question": "Break down the number of laundering transfers by laundering pattern.",
+  "gold": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.laundering_pattern IS NOT NULL RETURN t.laundering_pattern, count(t)",
+  "category": "Complex_Aggregation",
+  "paraphrase_of": "For each laundering pattern, how many transfers are there?",
+  "baseline": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering AND t.laundering_pattern IS NOT NULL RETURN t.laundering_pattern AS pattern, count(t) AS numLaundering",
+   "exec_top": true,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering AND t.laundering_pattern IS NOT NULL RETURN t.laundering_pattern AS pattern, count(t) AS numLaundering",
+   "exec_guided": true
+  },
+  "gat": {
+   "top": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN t.laundering_pattern AS pattern, count(t) AS numLaundering",
+   "exec_top": false,
+   "guided": "MATCH ()-[t:TRANSFERRED_TO]->() WHERE t.is_laundering RETURN t.laundering_pattern AS pattern, count(t) AS numLaundering",
+   "exec_guided": false
+  }
+ }
+]

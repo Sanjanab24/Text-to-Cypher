@@ -1,0 +1,72 @@
+{
+ "overall": {
+  "n": 7849,
+  "exec_acc": 47.06,
+  "exact_match": 6.33,
+  "validity": 93.08
+ },
+ "nonempty_gold": {
+  "n": 7157,
+  "exec_acc": 42.77,
+  "exact_match": 6.94,
+  "validity": 93.01
+ },
+ "verified_only": {
+  "n": 2962,
+  "exec_acc": 27.52,
+  "exact_match": 0.0,
+  "validity": 87.54
+ },
+ "by_category": {
+  "Complex_Aggregation": {
+   "n": 1621,
+   "exec_acc": 15.61,
+   "exact_match": 0.0,
+   "validity": 80.14
+  },
+  "Complex_Retrieval": {
+   "n": 1819,
+   "exec_acc": 33.75,
+   "exact_match": 0.05,
+   "validity": 92.08
+  },
+  "Evaluation_query": {
+   "n": 1696,
+   "exec_acc": 63.38,
+   "exact_match": 8.2,
+   "validity": 99.88
+  },
+  "Simple_Aggregation": {
+   "n": 1147,
+   "exec_acc": 50.83,
+   "exact_match": 2.27,
+   "validity": 94.59
+  },
+  "Simple_Retrieval": {
+   "n": 1566,
+   "exec_acc": 74.65,
+   "exact_match": 21.14,
+   "validity": 99.17
+  }
+ },
+ "by_graph": {
+  "bloom50": {
+   "n": 1551,
+   "exec_acc": 52.55,
+   "exact_match": 7.87,
+   "validity": 90.72
+  },
+  "healthcare": {
+   "n": 3151,
+   "exec_acc": 49.6,
+   "exact_match": 1.75,
+   "validity": 95.78
+  },
+  "wwc": {
+   "n": 3147,
+   "exec_acc": 41.82,
+   "exact_match": 10.17,
+   "validity": 91.55
+  }
+ }
+}

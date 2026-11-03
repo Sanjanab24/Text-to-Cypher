@@ -1,0 +1,90 @@
+{
+ "overall": {
+  "n": 1246,
+  "exec_acc": 77.61,
+  "exact_match": 42.22,
+  "validity": 98.23
+ },
+ "nonempty_gold": {
+  "n": 1245,
+  "exec_acc": 77.67,
+  "exact_match": 42.25,
+  "validity": 98.23
+ },
+ "verified_only": {
+  "n": 3,
+  "exec_acc": 66.67,
+  "exact_match": 0.0,
+  "validity": 100.0
+ },
+ "by_category": {
+  "Complex_Aggregation": {
+   "n": 279,
+   "exec_acc": 44.8,
+   "exact_match": 4.3,
+   "validity": 94.27
+  },
+  "Complex_Retrieval": {
+   "n": 263,
+   "exec_acc": 61.98,
+   "exact_match": 21.29,
+   "validity": 98.1
+  },
+  "Evaluation_query": {
+   "n": 328,
+   "exec_acc": 96.34,
+   "exact_match": 76.52,
+   "validity": 99.7
+  },
+  "Simple_Aggregation": {
+   "n": 122,
+   "exec_acc": 96.72,
+   "exact_match": 30.33,
+   "validity": 100.0
+  },
+  "Simple_Retrieval": {
+   "n": 254,
+   "exec_acc": 96.46,
+   "exact_match": 66.93,
+   "validity": 100.0
+  }
+ },
+ "by_graph": {
+  "covid": {
+   "n": 186,
+   "exec_acc": 76.34,
+   "exact_match": 40.86,
+   "validity": 96.24
+  },
+  "gdsc": {
+   "n": 153,
+   "exec_acc": 58.82,
+   "exact_match": 24.84,
+   "validity": 98.04
+  },
+  "legis_graph": {
+   "n": 258,
+   "exec_acc": 84.5,
+   "exact_match": 41.47,
+   "validity": 99.61
+  },
+  "osm": {
+   "n": 174,
+   "exec_acc": 81.61,
+   "exact_match": 28.74,
+   "validity": 98.85
+  },
+  "pole": {
+   "n": 247,
+   "exec_acc": 72.06,
+   "exact_match": 50.61,
+   "validity": 97.98
+  },
+  "twitter_trolls": {
+   "n": 228,
+   "exec_acc": 86.4,
+   "exact_match": 57.02,
+   "validity": 98.25
+  }
+ }
+}
