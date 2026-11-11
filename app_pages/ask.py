@@ -65,12 +65,12 @@ if last and last[0] == graph:
     with st.container(border=True):
         st.caption(q)
         if res["err"] or not rows:
-            st.markdown("### Sorry, I couldn't find an answer.")
+            st.subheader("Sorry, I couldn't find an answer.", anchor=False)
             st.caption("Try rephrasing the question.")
         elif len(rows) == 1 and len(cols) == 1:
-            st.markdown(f"## {show(rows[0][0])}")
+            st.header(show(rows[0][0]), anchor=False)
         elif len(rows) == 1:
-            st.markdown(f"## {show(rows[0][0])}")
+            st.header(show(rows[0][0]), anchor=False)
             st.caption(" · ".join(f"{c}: {show(v)}" for c, v in zip(cols[1:], rows[0][1:])))
         else:
             df = pd.DataFrame([[show(v) for v in r] for r in rows], columns=cols)

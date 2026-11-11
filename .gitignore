@@ -12,3 +12,5 @@ kaggle.json
 *.pdf
 *.tex
 .claude/
+*.pptx
+paper/
